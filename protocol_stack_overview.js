@@ -247,7 +247,7 @@ export function mount(root) {
 
     panel.innerHTML = '<div class="sim-loading">연결된 시뮬레이터를 불러오는 중입니다.</div>';
     try {
-      const module = await import(`/scripts/${selected.file}?v=${Date.now()}`);
+      const module = await import(new URL(selected.file, import.meta.url).href);
       panel.innerHTML = "";
       cleanupSimulator = module.mount(panel) || null;
     } catch (error) {

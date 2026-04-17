@@ -158,7 +158,7 @@ export function mount(root) {
     }
     panel.innerHTML = '<div class="sub-loading">시뮬레이터를 불러오는 중입니다.</div>';
     try {
-      const module = await import(`/scripts/${sel.file}?v=${Date.now()}`);
+      const module = await import(new URL(`../${sel.file}`, import.meta.url).href);
       panel.innerHTML = "";
       cleanupSub = module.mount(panel) || null;
     } catch (error) {

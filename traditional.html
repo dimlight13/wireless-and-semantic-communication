@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5G NR Uplink Protocol Stack Explorer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14212f;
+      --muted: #5f6f82;
+      --line: #d8e0ea;
+      --blue: #245fd6;
+      --green: #11865a;
+      --purple: #6b43bd;
+      --orange: #c86414;
+      --red: #d94242;
+      --yellow: #d9991d;
+      --accent: var(--blue);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(244,247,251,.98)),
+        radial-gradient(circle at 18% 12%, rgba(36,95,214,.10), transparent 30%),
+        radial-gradient(circle at 82% 80%, rgba(17,134,90,.10), transparent 26%);
+    }
+    button, input, select { font: inherit; }
+    .app-shell { width: min(1720px, 100%); min-height: 100vh; margin: 0 auto; padding: 20px clamp(14px, 3vw, 42px) 34px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .topbar a { color: var(--accent); text-decoration: none; font-weight: 900; padding: 7px 11px; border: 1px solid #cad5e3; border-radius: 8px; background: #fff; }
+    .loading, .error { min-height: 70vh; display: grid; place-items: center; padding: 24px; text-align: center; font-size: 21px; font-weight: 900; color: var(--muted); }
+    .error { color: var(--red); }
+    .vis-panel { display: grid; gap: 16px; color: var(--ink); }
+    .vis-card { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 16px; box-shadow: 0 8px 22px rgba(20,33,47,.06); }
+    .vis-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .vis-button { border: 1px solid #cad5e3; border-radius: 8px; background: #fff; color: var(--ink); min-height: 42px; padding: 9px 13px; cursor: pointer; font-weight: 900; }
+    .vis-button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .vis-button.green { background: var(--green); border-color: var(--green); color: #fff; }
+    .vis-button.red { background: var(--red); border-color: var(--red); color: #fff; }
+    .vis-button.orange { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .bit, .packet-chip { display: inline-grid; place-items: center; min-width: 34px; min-height: 34px; padding: 6px 9px; border-radius: 7px; background: #e9eef6; color: #172536; font-weight: 900; border: 1px solid #d4deea; }
+    .packet-chip { min-width: auto; color: #fff; border: 0; background: var(--blue); }
+    .logbox { min-height: 180px; max-height: 340px; overflow: auto; border-radius: 8px; background: #101722; color: #8ff0ad; padding: 14px; font-family: Consolas, "Cascadia Mono", monospace; white-space: pre-wrap; line-height: 1.45; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <nav class="topbar">
+      <a href="./index.html">Back to Home</a>
+      <strong>5G NR Uplink Protocol Stack Explorer</strong>
+    </nav>
+    <div id="app"><div class="loading">Loading protocol stack explorer...</div></div>
+  </main>
+  <script type="module">
+    const root = document.getElementById("app");
+    try {
+      const module = await import("./protocol_stack_overview.js");
+      if (typeof module.mount !== "function") throw new Error("protocol_stack_overview.js does not export mount(root).");
+      root.innerHTML = "";
+      module.mount(root);
+    } catch (error) {
+      root.innerHTML = `<div class="error">Failed to load visualizer<br>${error.message}</div>`;
+      console.error(error);
+    }
+  </script>
+</body>
+</html>
