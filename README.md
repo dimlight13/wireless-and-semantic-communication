@@ -2,18 +2,18 @@
 
 Click and try the simulator in your browser:
 
-## [Open the Visualizer](https://dimlight13.github.io/wireless-and-semantic-communication/)
+## [Open the Standalone Visualizer](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/standalone.html)
 
-No VS Code, Python, npm, or installation is needed when using the link above.
+No VS Code, Python, npm, GitHub Pages setup, or installation is needed when using the link above. It works like a small web game: the HTML and JavaScript load in the browser, and your device runs the simulator.
 
-If the link shows `404 There isn't a GitHub Pages site here`, the site has not been enabled yet. The repository owner only needs to enable GitHub Pages once: `Settings` -> `Pages` -> `Source: GitHub Actions`.
+If the CDN has not refreshed yet after a new push, wait a moment and reload the page.
 
 ## Choose a Simulator
 
-- [Traditional 5G NR Uplink Stack](https://dimlight13.github.io/wireless-and-semantic-communication/traditional.html)  
+- [Traditional 5G NR Uplink Stack](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/traditional.html)  
   Explore RF/ADC, CP removal, FFT, beamforming, equalization, QAM demodulation, LDPC, CRC, HARQ, PDCP, and SDAP.
 
-- [Semantic Communication Explorer](https://dimlight13.github.io/wireless-and-semantic-communication/semcom.html)  
+- [Semantic Communication Explorer](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/semcom.html)  
   Compare bit-level communication with semantic communication using sLLM-style encoding, vector quantization, world-model channel adaptation, and KB-assisted decoding.
 
 ## What You Can Do
@@ -36,26 +36,20 @@ Then open:
 http://127.0.0.1:8000
 ```
 
-You can also open the static pages directly through GitHub Pages:
+You can also download and double-click the standalone file:
 
-- `index.html`
-- `traditional.html`
-- `semcom.html`
+- `standalone.html`
 
 ## For Maintainers
 
-This project is designed to work as a static GitHub Pages site. The HTML files load ES module JavaScript directly with relative paths.
+This project can run in three simple ways:
 
-To enable GitHub Pages:
+1. `standalone.html`: one self-contained browser file.
+2. `index.html`, `traditional.html`, `semcom.html`: static pages for GitHub Pages or any static host.
+3. `python main.py`: local Python server for development.
 
-1. Go to the repository `Settings`.
-2. Open `Pages`.
-3. Set `Source` to `GitHub Actions`.
-4. Save.
-5. Open the `Actions` tab and run the `Deploy static site to GitHub Pages` workflow if it has not run automatically.
+When JavaScript modules change, rebuild the standalone file:
 
-The public simulator URL will be:
-
-```text
-https://dimlight13.github.io/wireless-and-semantic-communication/
+```bash
+python build_standalone.py
 ```
