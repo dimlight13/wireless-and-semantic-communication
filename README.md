@@ -6,6 +6,8 @@ Click and try the simulator in your browser:
 
 No VS Code, Python, npm, or installation is needed when using the link above.
 
+If the link shows `404 There isn't a GitHub Pages site here`, the site has not been enabled yet. The repository owner only needs to enable GitHub Pages once: `Settings` -> `Pages` -> `Source: GitHub Actions`.
+
 ## Choose a Simulator
 
 - [Traditional 5G NR Uplink Stack](https://dimlight13.github.io/wireless-and-semantic-communication/traditional.html)  
@@ -48,9 +50,9 @@ To enable GitHub Pages:
 
 1. Go to the repository `Settings`.
 2. Open `Pages`.
-3. Select `Deploy from a branch`.
-4. Choose `main` and `/ (root)`.
-5. Save.
+3. Set `Source` to `GitHub Actions`.
+4. Save.
+5. Open the `Actions` tab and run the `Deploy static site to GitHub Pages` workflow if it has not run automatically.
 
 The public simulator URL will be:
 
