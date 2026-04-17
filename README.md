@@ -2,18 +2,20 @@
 
 Click and try the simulator in your browser:
 
-## [Open the Standalone Visualizer](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/standalone.html)
+## [Run the Simulator Now](https://raw.githack.com/dimlight13/wireless-and-semantic-communication/main/standalone.html)
 
-No VS Code, Python, npm, GitHub Pages setup, or installation is needed when using the link above. It works like a small web game: the HTML and JavaScript load in the browser, and your device runs the simulator.
+No download, VS Code, Python, npm, or GitHub Pages setup is needed. Click the link above while reading this README and the simulator runs in your browser, using your device just like a small web game.
 
-If the CDN has not refreshed yet after a new push, wait a moment and reload the page.
+If the main link is temporarily slow, try the backup link:
+
+[Backup simulator link](https://htmlpreview.github.io/?https://github.com/dimlight13/wireless-and-semantic-communication/blob/main/standalone.html)
 
 ## Choose a Simulator
 
-- [Traditional 5G NR Uplink Stack](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/traditional.html)  
+- [Traditional 5G NR Uplink Stack](https://raw.githack.com/dimlight13/wireless-and-semantic-communication/main/traditional.html)  
   Explore RF/ADC, CP removal, FFT, beamforming, equalization, QAM demodulation, LDPC, CRC, HARQ, PDCP, and SDAP.
 
-- [Semantic Communication Explorer](https://cdn.jsdelivr.net/gh/dimlight13/wireless-and-semantic-communication@main/semcom.html)  
+- [Semantic Communication Explorer](https://raw.githack.com/dimlight13/wireless-and-semantic-communication/main/semcom.html)  
   Compare bit-level communication with semantic communication using sLLM-style encoding, vector quantization, world-model channel adaptation, and KB-assisted decoding.
 
 ## What You Can Do
